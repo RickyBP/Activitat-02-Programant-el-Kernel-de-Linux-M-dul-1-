@@ -99,7 +99,7 @@ SYSCALL_DEFINE1(my_syscall , char *, msg) {
   Al no veure el missatge que li passem per paràmetre a la funció my_syscall, no sabrem si la funció my_syscall funciona correctament o no.
 - En temps de compilació és no té cap perill en temps de compilació.
 
-## Part teòrica: GetTimes
+## Part pràctica: GetTimes
 
 ### Enunciat
 
@@ -115,6 +115,29 @@ pid, struct ptimes *pt). Aquesta crida ens permetrà obtenir informació sobre u
   • Implementeu un codi amb C per testar-la. Aquest codi és pot dir (test.c).
   
 ### Resposta
+
+*arxiiu GetTimes.c
+
+## Part pràctica: Demostrant GetInfoProc
+
+### Enunciat
+
+Demostreu que el vostre programa (test.c) anterior realment crida a la vostra crida a sistema. Indiqueu com fer-ho.
+
+### Resposta
+
+## Part pràctica: Hackejant chmod
+
+### Enunciat
+
+Hackegeu el vostre kernel de manera que imprimeixi la cadena "chmod is drunk!!!") cada vegada que fa una crida a chmod. Explicar dels passos realitzats i adjunteu captures de pantalla per veure el hack.
+
+### Resposta
+
+
+
+
+
 
 
 
