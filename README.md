@@ -99,6 +99,24 @@ SYSCALL_DEFINE1(my_syscall , char *, msg) {
   Al no veure el missatge que li passem per paràmetre a la funció my_syscall, no sabrem si la funció my_syscall funciona correctament o no.
 - En temps de compilació és no té cap perill en temps de compilació.
 
+## Part teòrica: GetTimes
+
+### Enunciat
+
+Realitzeu la implementació, integració i test d’una nova crida a sistema anomenada gettimes. gettimes(int
+pid, struct ptimes *pt). Aquesta crida ens permetrà obtenir informació sobre un procés concret com: 
+
+  • real: temps total del procés.
+  • user: quantitat de temps de CPU invertit en mode d’usuari. 
+  • sys: quantitat de temps de CPU invertit en mode nucli.
+
+  • Implementeu la crida a sistema.
+  • Integreu la crida al vostre kernel.
+  • Implementeu un codi amb C per testar-la. Aquest codi és pot dir (test.c).
+  
+### Resposta
+
+
 
 
   
