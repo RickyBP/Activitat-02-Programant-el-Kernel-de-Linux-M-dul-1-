@@ -1,25 +1,47 @@
-//Implementar en C la llamada a sistema GetTimes
+//Realitzeu la implemetació, integració i test d'una nova crida a sistema anomenada gettimes. gettimes(int, pid, struct ptimes *pt).
+//Aquesta crida ens permetrà obtenir informació sobre un procés concret:
+//real: temps total del procés.
+//user: temps total en mode usuari.
+//sys: temps total en mode sistema.
 
-#include <sys/times.h> 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <unistd.h>
+#include <sys/syscall.h>
 
-int main(int argc, char *argv[]){
-    struct ptimes{
-        unsigned long start_time;
-        unsigned long real_time;
-        unsigned long user_time;
-        unsigned long sys_time;
-    }ptimes;
+#define __NR_gettimes 333
 
-task = pid_task(find_get_pid(pid), PIDTYPE_PID);
-if (task == NULL) {
-    printk(KERN_INFO "No se ha encontrado el proceso con PID %d para obtener tiempos", pid);
-    return -1;
+//TIP's: 
+struct ptimes {
+    unsigned long start_time;
+    unsigned long real_time;
+    unsigned long user_time;
+    unsigned long sys_time;
+};
+
+int main(int argc, char *argv[])
+{
+    int pid;
+    struct ptimes pt;
+    int ret;
+
+    if (argc != 2) {
+        printf("Usage: %s <pid> \n", argv[0]);
+        exit(1);
+    }
+
+    pid = atoi(argv[1]);
+
+    ret = syscall(__NR_gettimes, pid, &pt);
+    if (ret < 0) {
+        perror("gettimes");
+        exit(1);
+    }
+
+    printf("start_time: %lu \t real_time: %lu \t user_time: %lu \t sys_time: %lu \n", pt.start_time, pt.real_time, pt.user_time, pt.sys_time);
+
+    return 0;
 }
-
-ptimes.start_time = task->start_time;
-ptimes.real_time = task->real_start_time;
-ptimes.user_time = task->utime;
-ptimes.sys_time = task->stime;
