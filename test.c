@@ -14,34 +14,11 @@
 
 #define __NR_gettimes 333
 
-//TIP's: 
-struct ptimes {
-    unsigned long start_time;
-    unsigned long real_time;
-    unsigned long user_time;
-    unsigned long sys_time;
-};
+
 
 int main(int argc, char *argv[])
 {
-    int pid;
-    struct ptimes pt;
-    int ret;
-
-    if (argc != 2) {
-        printf("Usage: %s <pid> \n", argv[0]);
-        exit(1);
-    }
-
-    pid = atoi(argv[1]);
-
-    ret = syscall(__NR_gettimes, pid, &pt);
-    if (ret < 0) {
-        perror("gettimes");
-        exit(1);
-    }
-
+    gettimes(argv[0], &pt);
     printf("start_time: %lu \t real_time: %lu \t user_time: %lu \t sys_time: %lu \n", pt.start_time, pt.real_time, pt.user_time, pt.sys_time);
-
     return 0;
 }
