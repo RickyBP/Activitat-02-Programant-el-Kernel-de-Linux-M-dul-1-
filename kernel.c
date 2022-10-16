@@ -1,3 +1,7 @@
+/*  Hola Jordi, bona nit.
+    No podem testejar el Kernel degut a continues fallades amb la compilació. No som capaços.
+    Gràcies per la comprensió, hem fet el que hem pogut.
+    :)                                                  */
 #include<stdio.h>
     int main(int argv, char **argc){
         int *sys_call_table = (int *) arch/x86/entry/calls/syscalls/syscall_65.tbl; //Address of sys_call_table
