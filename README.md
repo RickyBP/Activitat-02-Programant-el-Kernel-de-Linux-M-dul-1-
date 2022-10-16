@@ -116,7 +116,7 @@ pid, struct ptimes *pt). Aquesta crida ens permetrà obtenir informació sobre u
   
 ### Resposta
 
-*arxiiu GetTimes.c
+*arxiu GetTimes.c
 
 ## Part pràctica: Demostrant GetInfoProc
 
@@ -126,6 +126,8 @@ Demostreu que el vostre programa (test.c) anterior realment crida a la vostra cr
 
 ### Resposta
 
+*arxiu test.c
+
 ## Part pràctica: Hackejant chmod
 
 ### Enunciat
@@ -133,6 +135,8 @@ Demostreu que el vostre programa (test.c) anterior realment crida a la vostra cr
 Hackegeu el vostre kernel de manera que imprimeixi la cadena "chmod is drunk!!!") cada vegada que fa una crida a chmod. Explicar dels passos realitzats i adjunteu captures de pantalla per veure el hack.
 
 ### Resposta
+
+*arxiu kernel.c
 
 
 
